@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mmsg-client"
+    }
+  },
+  "defaultProject": "mmsg-client",
+  "cli": {
+    "analytics": "39b892dc-e374-4c05-90ce-ee1ea8f95efd"
+  }
 }
