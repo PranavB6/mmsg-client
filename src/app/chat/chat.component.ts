@@ -54,11 +54,7 @@ export class ChatComponent implements OnInit {
       this.room = params.room;
       this.socketService.joinRoom(this.username, this.room);
     })
-
-    // let params = this.route.snapshot.queryParams;
-    // this.username = params.username;
-    // this.room = params.room;
-
+    
   }
 
   onSendMsg() {

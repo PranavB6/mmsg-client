@@ -1,15 +1,26 @@
-<h1>MMsg</h1>
-<div>
-  <label>Name: </label>
-  <input type="text" [(ngModel)]="username">
+<div class="container">
+  <div class="header">
+
+
+    <div class="header-text-container">
+      <h1 class="header-text">M Message</h1>
+    </div>
+
+  </div>
+
+  <div class="body">
+    <div class="input-container">
+      <input type="text" id="username" placeholder="Name" [(ngModel)]="username">
+    </div>
+    <div class="input-container">
+      <input type="text" id="room" placeholder="Room" [(ngModel)]="room">
+    </div>
+
+    <div class="btn-container">
+      <button id="submit-btn" (click)="onJoinBtn()"> Join </button>
+    </div>
+  </div>
+
+
+
 </div>
-
-<div>
-  <label>Room: </label>
-  <input type="text" [(ngModel)]="room">
-</div>
-
-<p> {{username}}, {{room}}</p>
-
-<button (click)="onJoinBtn()">Join</button>
-

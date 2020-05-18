@@ -11,6 +11,6 @@
 
 <div #msgContainer style="height: 200px; overflow: scroll;">
     <p *ngFor="let msg of chatMessages">
-        {{msg.date | date }} [{{msg.username}}]: {{msg.text}}
+        {{msg.date | date }} [{{msg.from}}]: {{msg.text}}
     </p>
 </div>

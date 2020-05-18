@@ -1,7 +1,9 @@
-export class ChatMessage {
-  username: string;
-  text: string;
-  date: Date;
+import { MsgType } from './msg-type.model';
 
-  fromSelf?: boolean;
+export class ChatMessage {
+    from: string;
+    text: string;
+    date: Date;
+
+    // type?: MsgType;
 }
