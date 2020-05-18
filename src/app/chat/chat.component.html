@@ -1,0 +1,16 @@
+<p>chat works!</p>
+
+<!-- <p *ngFor="let msg of (chatMessages$ | async)">{{msg}}</p> -->
+
+<div>
+    <label for="message">Message:</label>
+    <input type="text" name="message" id="message" [(ngModel)]="message">
+</div>
+
+<button (click)="onSendMsg()"> Enter </button>
+
+<div #msgContainer style="height: 200px; overflow: scroll;">
+    <p *ngFor="let msg of chatMessages">
+        {{msg.date | date }} [{{msg.username}}]: {{msg.text}}
+    </p>
+</div>

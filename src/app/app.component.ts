@@ -9,9 +9,7 @@ import { SocketioService } from './socketio.service';
 export class AppComponent {
   title = 'mmsg-client';
 
-  constructor(private socketService: SocketioService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.socketService.setupSocketConnection();
-  }
+  ngOnInit() {}
 }

@@ -1,0 +1,15 @@
+<h1>MMsg</h1>
+<div>
+  <label>Name: </label>
+  <input type="text" [(ngModel)]="username">
+</div>
+
+<div>
+  <label>Room: </label>
+  <input type="text" [(ngModel)]="room">
+</div>
+
+<p> {{username}}, {{room}}</p>
+
+<button (click)="onJoinBtn()">Join</button>
+
