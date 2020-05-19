@@ -26,23 +26,23 @@ export class SocketioService {
     this.socket = io(environment.SOCKET_ENDPOINT);
 
     this.socket.on('sys', (data: ChatMessage) => {
-      data['type'] = MsgType.SYS;
+      data.type = MsgType.SYS;
       console.log("[sys]:", data);
     });
 
     this.socket.on('server-msg', (data: ChatMessage) => {
-      data['type'] = MsgType.SERVER;
+      data.type = MsgType.SERVER;
       console.log("[server-msg]:", data);
     });
 
     this.socket.on('chat-msg', (data: ChatMessage) => {
-      data['type'] = MsgType.CHAT;
+      data.type = MsgType.CHAT;
       console.log("[chat-msg]:", data);
       this.chatMessages$.next(data);
     });
 
     this.socket.on('confirm-msg', (data: ChatMessage) => {
-      data['type'] = MsgType.FROM_SELF;
+      data.type = MsgType.FROM_SELF;
       console.log("[confirm-msg]:", data);
       this.chatMessages$.next(data);
     })

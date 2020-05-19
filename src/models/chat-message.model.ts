@@ -5,5 +5,5 @@ export class ChatMessage {
     text: string;
     date: Date;
 
-    // type?: MsgType;
+    type: MsgType;
 }
