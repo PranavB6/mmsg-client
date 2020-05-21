@@ -29,7 +29,7 @@
     </div>
 
     <div class="main-content">
-        <div class="msgs-container">
+        <div #msgsContainer class="msgs-container">
             <app-message *ngFor="let message of chatMessages" [message]="message"></app-message>
             <!-- <app-message [message]="message_others"> </app-message>
             <app-message [message]="message_self"> </app-message>

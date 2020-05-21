@@ -18,7 +18,7 @@ import { MsgType } from 'src/models/msg-type.model';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-  @ViewChild('msgContainer', {static: true}) msgContainer: ElementRef;
+  @ViewChild('msgsContainer') msgContainer: ElementRef;
 
   public username: string;
   public room: string;
@@ -82,14 +82,14 @@ export class ChatComponent implements OnInit {
 
   scrollToBottom() {
 
-    // if (this.msgContainer) {
-    //   let container = this.msgContainer.nativeElement;
-    //   container.scroll({
-    //     top: container.scrollHeight,
-    //     left: 0,
-    //     behavior: 'smooth',
-    //   });
-    // }
+    if (this.msgContainer) {
+      let container = this.msgContainer.nativeElement;
+      container.scroll({
+        top: container.scrollHeight,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
 
     // let container = document.querySelector('#msg-container');
     // container.scrollTop = container.scrollHeight;
