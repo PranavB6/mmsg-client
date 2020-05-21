@@ -15,7 +15,7 @@ $dark: #6c7680;
 
     border: 1px solid $border;
     border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 3px 3px 3px #DCDEE1;
 
     .header {
         width: 100%;
@@ -106,9 +106,10 @@ $dark: #6c7680;
 
                 &:hover {
                     background: lighten($color: $primary, $amount: 5%);
+                    cursor: pointer;
                 }
 
-                &:focus {
+                &:focus, &:active {
                     outline: none;
                     background: darken($color: $primary, $amount: 10%);
                 }

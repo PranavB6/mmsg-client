@@ -19,16 +19,21 @@ import { ChatMessage } from 'src/models/chat-message.model';
 export class HomeComponent implements OnInit {
 
 
-  public username: string;
-  public room: string;
+  public username: string = "";
+  public room: string = "";
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   onJoinBtn() {
-    this.router.navigate(['/chat'], {
-      queryParams: { username: this.username, room: this.room },
-    });
+
+    if (this.username && this.room) {
+      this.router.navigate(['/chat'], {
+        queryParams: { username: this.username, room: this.room },
+      });
+    }
+
+  
   }
 }

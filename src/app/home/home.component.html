@@ -10,11 +10,12 @@
       <input type="text" id="username" placeholder="Name" [(ngModel)]="username">
     </div>
     <div class="input-container">
-      <input type="text" id="room" placeholder="Room" [(ngModel)]="room">
+      <input type="text" id="room" placeholder="Room" (keyup.enter)="onJoinBtn()" [(ngModel)]="room">
     </div>
 
-    <div class="btn-container">
+
+    <form class="btn-container">
       <button id="submit-btn" (click)="onJoinBtn()"> Join </button>
-    </div>
+    </form>
   </div>
 </div>
