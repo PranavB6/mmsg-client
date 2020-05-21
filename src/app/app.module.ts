@@ -8,9 +8,10 @@ import { SocketioService } from './socketio.service';
 import { ChatComponent } from './chat/chat.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth-guard.service';
+import { MessageComponent } from './chat/message/message.component';
 
 @NgModule({
-  declarations: [AppComponent, ChatComponent, HomeComponent],
+  declarations: [AppComponent, ChatComponent, HomeComponent, MessageComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [SocketioService, AuthGuard],
   bootstrap: [AppComponent],

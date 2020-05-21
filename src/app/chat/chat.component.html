@@ -29,136 +29,32 @@
     </div>
 
     <div class="main-content">
-        <div class="messages-container">
-            
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
-
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
+        <div class="msgs-container">
+            <app-message *ngFor="let message of chatMessages" [message]="message"></app-message>
+            <!-- <app-message [message]="message_others"> </app-message>
+            <app-message [message]="message_self"> </app-message>
+            <app-message [message]="message_server"> </app-message> -->
 
 
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
-
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
-
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
-
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
-
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
-
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
-
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
-
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
-
-            <div class="message">
-                <div class="icon-container">
-                    <div class="icon">M</div>
-                </div>
-
-                <div class="text-container">
-                    <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate perspiciatis sapiente eos?</span>
-                </div>
-            </div>
-
-            
         </div>
         <div class="search-bar">
             <div class="icon-container">
                 <div class="icon">+</div>
             </div>
 
-            <div class="search-input-container">
-                <input class="search-input">
+            <div class="search-input-container" (keyup.enter)="onSendMsg()">
+                <input class="search-input" [(ngModel)]="typedText">
             </div>
 
 
-            <button type="submit" class="send-btn">
-                <span class="send-btn-text ">
-                    Send
-                </span>
-            </button>
+
+            <!-- <form (submit)="onSendMsg()"> -->
+                <button type="submit" class="send-btn" (click)="onSendMsg()" >
+                    <span class="send-btn-text ">
+                        Send
+                    </span>
+                </button>
+            <!-- </form> -->
 
 
         </div>

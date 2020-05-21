@@ -1,6 +1,6 @@
 export enum MsgType {
-    CHAT,
+    SYS,
     SERVER,
     FROM_SELF,
-    SYS,
+    FROM_OTHERS,
 }

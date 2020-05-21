@@ -1,10 +1,15 @@
 $primary: #ff9940;
 $info: #55b4d4;
+$highlight: #99bf4d;
 $white: #ffffff;
 $snow: #fafafa;
 $border: #dcdee1;
 $text: #959da6;
 $dark: #6c7680;
+
+@mixin shadow {
+    box-shadow: 0px 1px 3px rgba(149, 157, 166, 0.8);
+}
 
 .w-100 {
     width: 100%;
@@ -19,10 +24,10 @@ $dark: #6c7680;
     width: 100vw;
 
     display: grid;
-    grid-template-columns: 17% 1fr;
+    grid-template-columns: 280px 1fr;
 
     .sidebar {
-        background: $snow;
+        background: $white;
         height: 100%;
 
         .header {
@@ -30,7 +35,7 @@ $dark: #6c7680;
             }
 
             .header-text-container {
-                min-height: 50px;
+                min-height: 30px;
 
                 margin: 15px 10px;
 
@@ -51,6 +56,8 @@ $dark: #6c7680;
             padding: 0 25px;
 
             .users-container {
+                margin-top: 50px;
+
                 .users-header {
                     color: $dark;
                     font-size: 14px;
@@ -58,6 +65,7 @@ $dark: #6c7680;
 
                     &::before {
                         margin-left: -14px;
+                        font-weight: 800;
                         content: ">";
                     }
                 }
@@ -67,7 +75,7 @@ $dark: #6c7680;
                     padding-left: 0px;
 
                     .user-item {
-                        margin-top: 5px;
+                        margin-top: 10px;
                         color: $text;
                         font-size: 14px;
                     }
@@ -80,53 +88,14 @@ $dark: #6c7680;
         width: 100%;
         height: 100%;
 
+        background: $snow;
+
         display: grid;
         grid-template-rows: 1fr auto;
         overflow: hidden;
 
-        // background: black;
-
-        .messages-container {
+        .msgs-container {
             overflow-y: scroll;
-
-            .message {
-                display: flex;
-                align-items: center;
-
-                padding: 20px 15px;
-
-                .icon-container {
-                    width: 55px;
-                    height: 55px;
-
-                    border-radius: 50%;
-                    background: $snow;
-
-                    display: grid;
-                    align-items: center;
-                    justify-content: center;
-
-                    .icon {
-                        color: $info;
-                        font-size: 24px;
-                    }
-                }
-
-                .text-container {
-                    height: 45px;
-                    width: fit-content;
-                    margin-left: 5px;
-
-                    padding: 15px 20px;
-                    border-radius: 10px;
-
-                    background: $snow;
-
-                    .text {
-                        color: $dark;
-                    }
-                }
-            }
         }
 
         .search-bar {

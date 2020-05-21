@@ -33,10 +33,11 @@ export class SocketioService {
     this.socket.on('server-msg', (data: ChatMessage) => {
       data.type = MsgType.SERVER;
       console.log("[server-msg]:", data);
+      this.chatMessages$.next(data);
     });
 
     this.socket.on('chat-msg', (data: ChatMessage) => {
-      data.type = MsgType.CHAT;
+      data.type = MsgType.FROM_OTHERS;
       console.log("[chat-msg]:", data);
       this.chatMessages$.next(data);
     });

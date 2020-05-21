@@ -1,0 +1,111 @@
+$primary: #ff9940;
+$info: #55b4d4;
+$highlight: #99BF4D;
+$white: #ffffff;
+$snow: #fafafa;
+$border: #dcdee1;
+$text: #959da6;
+$dark: #6c7680;
+
+@mixin shadow {
+    box-shadow: 0px 1px 3px rgba(149, 157, 166, 0.8);
+}
+
+.msg {
+    display: flex;
+    align-items: flex-start;
+
+    padding: 20px 15px;
+
+    .msg-item {
+        margin-right: 10px;
+    }
+
+    .icon-container {
+        @include shadow;
+
+        width: 45px;
+        height: 45px;
+
+        border-radius: 50%;
+
+        display: grid;
+        align-items: center;
+        justify-content: center;
+
+        .icon {
+            color: $white;
+            font-size: 24px;
+        }
+    }
+
+    .text-container {
+        @include shadow();
+
+        display: grid;
+        align-items: center;
+
+        min-height: 45px;
+        width: fit-content;
+
+        padding: 15px 20px;
+        border-radius: 10px;
+
+        background: $white;
+
+        .text {
+            color: $dark;
+            font-size: 14px;
+            line-height: 19px;
+
+            word-wrap: break-word;
+        }
+    }
+}
+
+.msg-left {
+    flex-direction: row;
+
+    .icon-container {
+        background: $info;
+    }
+}
+
+.msg-right {
+    flex-direction: row-reverse;
+
+    .icon-container {
+        background: $highlight;
+    }
+}
+
+.msg-server {
+    
+    .text-container {
+        
+        min-height: 35px;
+        height: 35px;
+
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .badge {
+            margin-right: 15px;
+            background: $primary;
+            width: 50px;
+            height: 100%;
+            border-radius: 10px 0px 0px 10px;
+        }
+
+        .text {
+            color: $primary;
+            font-weight: 600;
+        }
+    }
+
+    
+
+}

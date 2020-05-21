@@ -10,6 +10,7 @@ import { SocketioService } from '../socketio.service';
 import { Subscription, ReplaySubject, observable, pipe } from 'rxjs';
 import { map, tap, delay } from 'rxjs/operators';
 import { ChatMessage } from 'src/models/chat-message.model';
+import { MsgType } from 'src/models/msg-type.model';
 
 @Component({
   selector: 'app-chat',
@@ -17,12 +18,17 @@ import { ChatMessage } from 'src/models/chat-message.model';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-  @ViewChild('msgContainer') msgContainer: ElementRef;
+  @ViewChild('msgContainer', {static: true}) msgContainer: ElementRef;
 
   public username: string;
   public room: string;
-  public message: string;
+  public message: ChatMessage;
+  // public message_others: ChatMessage;
+  // public message_self: ChatMessage;
+  // public message_server: ChatMessage;
   chatMessages: ChatMessage[] = [];
+
+  public typedText = "";
 
   constructor(
     private socketService: SocketioService,
@@ -40,11 +46,20 @@ export class ChatComponent implements OnInit {
       )
       .subscribe();
 
-    // let queryParams = this.route.snapshot.queryParams;
-    // this.username = queryParams.username;
-    // this.room = queryParams.room;
+    // this.message_others = new ChatMessage();
+    // this.message_others.from = "Madeeha";
+    // this.message_others.text = "sacsacasc";
+    // this.message_others.type = MsgType.FROM_OTHERS;
 
-    // console.log(this.username, this.room);
+    // this.message_self = new ChatMessage();
+    // this.message_self.from = "Pranav";
+    // this.message_self.text = "sacsacasc";
+    // this.message_self.type = MsgType.FROM_SELF;
+
+    // this.message_server = new ChatMessage();
+    // this.message_server.from = "Server";
+    // this.message_server.text = "sacsacasc";
+    // this.message_server.type = MsgType.SERVER;
   }
 
   joinRoom() {
@@ -58,18 +73,24 @@ export class ChatComponent implements OnInit {
   }
 
   onSendMsg() {
-
-    this.socketService.sendMsg(this.message);
-    this.message = '';
+    if (this.typedText != "") {
+      this.socketService.sendMsg(this.typedText);
+      this.typedText = "";
+    }
+    // this.message = '';
   }
 
   scrollToBottom() {
-    let container = this.msgContainer.nativeElement;
-    container.scroll({
-      top: container.scrollHeight,
-      left: 0,
-      behavior: 'smooth',
-    });
+
+    // if (this.msgContainer) {
+    //   let container = this.msgContainer.nativeElement;
+    //   container.scroll({
+    //     top: container.scrollHeight,
+    //     left: 0,
+    //     behavior: 'smooth',
+    //   });
+    // }
+
     // let container = document.querySelector('#msg-container');
     // container.scrollTop = container.scrollHeight;
   }

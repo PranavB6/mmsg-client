@@ -1,0 +1,30 @@
+<div [ngSwitch]="msg.type">
+
+    <div *ngSwitchCase="MsgType.FROM_OTHERS" class="msg msg-left">
+        <div class="msg-item icon-container">
+            <div class="icon">{{ msg.from | titlecase  | slice:0:1 }}</div>
+        </div>
+
+        <div class="msg-item text-container">
+            <span class="text">{{ msg.text }}</span>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="MsgType.FROM_SELF" class="msg msg-right">
+        <div class="msg-item icon-container">
+            <div class="icon">{{ msg.from | titlecase  | slice:0:1 }}</div>
+        </div>
+
+        <div class="msg-item text-container">
+            <span class="text">{{ msg.text }}</span>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="MsgType.SERVER" class="msg msg-server">
+        <div class="msg-item text-container">
+            <div class="badge"></div>
+            <div class="text">{{ msg.text }}</div>
+        </div>
+    </div>
+
+</div>
