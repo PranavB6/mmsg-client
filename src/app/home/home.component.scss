@@ -1,86 +1,75 @@
-$primary: #ff9940;
-$info: #55b4d4;
-$white: #ffffff;
-$snow: #fafafa;
-$border: #dcdee1;
-$text: #959da6;
-$dark: #6c7680;
+@import "src/styles/variables";
 
 .container {
-    font-family: Arial, Helvetica, sans-serif;
-
+    width: 90%;
+    min-width: 300px;
     max-width: 480px;
-    width: 50%;
-    background: #ffffff;
-    margin: 100px auto;
 
-    border: 1px solid $border;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px #DCDEE1;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+
+    background: color("white");
+
+    border: 1px solid color("snow");
+    // border-color: ;
+    border-radius: $border-radius;
+    box-shadow: 3px 3px 3px color(shadow);
 
     .header {
         width: 100%;
         height: 90px;
-        background: $primary;
+        background: color("primary");
 
-        border-radius: 10px 10px 0px 0px;
+        border-radius: $border-radius $border-radius 0px 0px;
 
         display: flex;
         align-items: center;
         justify-content: center;
 
         .header-text-container {
-            // border: 1px solid #dcdee1;
-
             .header-text {
-                color: $white;
+                color: color("white");
                 font-size: 24px;
                 font-weight: 100;
-                line-height: 33px;
                 text-align: center;
             }
         }
     }
 
     .body {
-        // padding: 15px 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        margin-top: 20px;
-
-        // padding-top: 10px;
-        // margin-bottom: 300px;
+        margin-top: 10px;
 
         .input-container {
-            width: 350px;
+            width: 80%;
+            max-width: 350px;
             height: 60px;
             margin-top: 20px;
-
-           
 
             input {
                 width: 100%;
                 height: 100%;
                 padding-left: 20px;
-                background: $white;
+                background: color("white");
 
                 border: none;
                 border-radius: 10px;
-                box-shadow: 0px 1px 3px rgba(149, 157, 166, 0.8);
-
+                box-shadow: 0px 1px 3px color(shadow);
 
                 font-size: 18px;
-                color: $text;
+                color: color("cadet-gray");
 
                 &::placeholder {
-                    color: lighten($color: $text, $amount: 20%);
+                    color: lighten(color(cadet-gray), 20%);
                 }
 
                 &:focus {
                     outline: none;
-                    border-color: $dark;
+                    border-color: color(slate-gray);
                 }
             }
         }
@@ -92,12 +81,11 @@ $dark: #6c7680;
             margin-top: 30px;
             margin-bottom: 30px;
 
-            
             #submit-btn {
                 width: 100%;
                 height: 100%;
                 background: $primary;
-                
+
                 border: none;
                 border-radius: 10px;
                 box-shadow: 0px 3px 3px rgba(149, 157, 166, 0.8);
@@ -110,7 +98,8 @@ $dark: #6c7680;
                     cursor: pointer;
                 }
 
-                &:focus, &:active {
+                &:focus,
+                &:active {
                     outline: none;
                     background: darken($color: $primary, $amount: 10%);
                 }
@@ -118,3 +107,112 @@ $dark: #6c7680;
         }
     }
 }
+
+// .container {
+//     font-family: Arial, Helvetica, sans-serif;
+
+//     max-width: 480px;
+//     width: 50%;
+//     background: #ffffff;
+//     margin: 100px auto;
+
+//     border: 1px solid $border;
+//     border-radius: 10px;
+//     box-shadow: 3px 3px 3px #DCDEE1;
+
+//     .header {
+//         width: 100%;
+//         height: 90px;
+//         background: $primary;
+
+//         border-radius: 10px 10px 0px 0px;
+
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+
+//         .header-text-container {
+//             // border: 1px solid #dcdee1;
+
+//             .header-text {
+//                 color: $white;
+//                 font-size: 24px;
+//                 font-weight: 100;
+//                 line-height: 33px;
+//                 text-align: center;
+//             }
+//         }
+//     }
+
+//     .body {
+//         // padding: 15px 30px;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+
+//         margin-top: 20px;
+
+//         // padding-top: 10px;
+//         // margin-bottom: 300px;
+
+//         .input-container {
+//             width: 350px;
+//             height: 60px;
+//             margin-top: 20px;
+
+//             input {
+//                 width: 100%;
+//                 height: 100%;
+//                 padding-left: 20px;
+//                 background: $white;
+
+//                 border: none;
+//                 border-radius: 10px;
+//                 box-shadow: 0px 1px 3px rgba(149, 157, 166, 0.8);
+
+//                 font-size: 18px;
+//                 color: $text;
+
+//                 &::placeholder {
+//                     color: lighten($color: $text, $amount: 20%);
+//                 }
+
+//                 &:focus {
+//                     outline: none;
+//                     border-color: $dark;
+//                 }
+//             }
+//         }
+
+//         .btn-container {
+//             width: 170px;
+//             height: 50px;
+
+//             margin-top: 30px;
+//             margin-bottom: 30px;
+
+//             #submit-btn {
+//                 width: 100%;
+//                 height: 100%;
+//                 background: $primary;
+
+//                 border: none;
+//                 border-radius: 10px;
+//                 box-shadow: 0px 3px 3px rgba(149, 157, 166, 0.8);
+
+//                 font-size: 18px;
+//                 color: $white;
+
+//                 &:hover {
+//                     background: lighten($color: $primary, $amount: 5%);
+//                     cursor: pointer;
+//                 }
+
+//                 &:focus, &:active {
+//                     outline: none;
+//                     background: darken($color: $primary, $amount: 10%);
+//                 }
+//             }
+//         }
+//     }
+// }

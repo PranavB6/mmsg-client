@@ -1,6 +1,6 @@
 $primary: #ff9940;
 $info: #55b4d4;
-$highlight: #99BF4D;
+$highlight: #99bf4d;
 $white: #ffffff;
 $snow: #fafafa;
 $border: #dcdee1;
@@ -15,7 +15,7 @@ $dark: #6c7680;
     display: flex;
     align-items: flex-start;
 
-    padding: 20px 15px;
+    padding: 10px 15px;
 
     .msg-item {
         margin-right: 10px;
@@ -26,6 +26,9 @@ $dark: #6c7680;
 
         width: 45px;
         height: 45px;
+
+        min-width: 45px;
+        min-height: 45px;
 
         border-radius: 50%;
 
@@ -46,7 +49,9 @@ $dark: #6c7680;
         align-items: center;
 
         min-height: 45px;
+
         width: fit-content;
+        max-width: 80%;
 
         padding: 15px 20px;
         border-radius: 10px;
@@ -54,11 +59,12 @@ $dark: #6c7680;
         background: $white;
 
         .text {
+            max-width: 100%;
             color: $dark;
             font-size: 14px;
             line-height: 19px;
 
-            word-wrap: break-word;
+            word-break: break-word;
         }
     }
 }
@@ -80,32 +86,17 @@ $dark: #6c7680;
 }
 
 .msg-server {
-    
     .text-container {
-        
-        min-height: 35px;
-        height: 35px;
+        min-height: 25px;
 
         display: flex;
         flex-direction: row;
-        padding-left: 0;
-        padding-top: 0;
-        padding-bottom: 0;
 
-        .badge {
-            margin-right: 15px;
-            background: $primary;
-            width: 50px;
-            height: 100%;
-            border-radius: 10px 0px 0px 10px;
-        }
+        background: $primary !important;
 
         .text {
-            color: $primary;
+            color: $white;
             font-weight: 600;
         }
     }
-
-    
-
 }

@@ -6,7 +6,7 @@
         </div>
 
         <div class="msg-item text-container">
-            <span class="text">{{ msg.text }}</span>
+            <div class="text">{{ msg.text }}</div>
         </div>
     </div>
 
@@ -16,15 +16,16 @@
         </div>
 
         <div class="msg-item text-container">
-            <span class="text">{{ msg.text }}</span>
+            <div class="text">{{ msg.text }}</div>
         </div>
     </div>
 
-    <div *ngSwitchCase="MsgType.SERVER" class="msg msg-server">
+    <div *ngSwitchCase="MsgType.SERVER" class="msg msg-server" id="server">
+       
         <div class="msg-item text-container">
-            <div class="badge"></div>
             <div class="text">{{ msg.text }}</div>
         </div>
     </div>
 
 </div>
+

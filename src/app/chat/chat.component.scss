@@ -1,14 +1,8 @@
-$primary: #ff9940;
-$info: #55b4d4;
-$highlight: #99bf4d;
-$white: #ffffff;
-$snow: #fafafa;
-$border: #dcdee1;
-$text: #959da6;
-$dark: #6c7680;
+@import "src/styles/variables";
+
 
 @mixin shadow {
-    box-shadow: 0px 1px 3px rgba(149, 157, 166, 0.8);
+    box-shadow: 0px 1px 3px color(shadow);
 }
 
 .w-100 {
@@ -24,10 +18,10 @@ $dark: #6c7680;
     width: 100vw;
 
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 0px 1fr;
 
     .sidebar {
-        background: $white;
+        background: color("white");
         height: 100%;
 
         .header {
@@ -44,7 +38,7 @@ $dark: #6c7680;
                 justify-content: center;
 
                 .header-text {
-                    color: $dark;
+                    color: color("slate-gray");
                     font-size: 24px;
                     text-align: center;
                 }
@@ -59,7 +53,7 @@ $dark: #6c7680;
                 margin-top: 50px;
 
                 .users-header {
-                    color: $dark;
+                    color: color("slate-gray");
                     font-size: 14px;
                     font-weight: 700;
 
@@ -76,7 +70,7 @@ $dark: #6c7680;
 
                     .user-item {
                         margin-top: 10px;
-                        color: $text;
+                        color: color("cadet-gray");
                         font-size: 14px;
                     }
                 }
@@ -88,7 +82,7 @@ $dark: #6c7680;
         width: 100%;
         height: 100%;
 
-        background: $snow;
+        background: color("snow");
 
         display: grid;
         grid-template-rows: 1fr auto;
@@ -101,9 +95,9 @@ $dark: #6c7680;
         .search-bar {
             height: 35px;
             margin: 0px 15px 20px 15px;
-            background: $snow;
+            background: color("snow");
 
-            border: 1px solid $border;
+            border: 1px solid color("gainsboro");
             border-radius: 10px;
 
             display: grid;
@@ -115,7 +109,7 @@ $dark: #6c7680;
                 justify-content: center;
 
                 .icon {
-                    color: $text;
+                    color: color("cadet-gray");
                     font-size: 18px;
                 }
             }
@@ -126,7 +120,7 @@ $dark: #6c7680;
                     height: 100%;
                     padding: 0px 10px;
 
-                    // background: $snow;
+                
                     border: none;
 
                     font-size: 14px;
@@ -140,12 +134,12 @@ $dark: #6c7680;
 
             .send-btn {
                 border: none;
-                border-left: 1px solid $border;
-                background: $white;
+                border-left: 1px solid color("gainsboro");
+                background: color("white");
                 border-radius: 0px 10px 10px 0px;
 
                 .send-btn-text {
-                    color: $primary;
+                    color: color("primary");
                 }
 
                 &:focus {
@@ -154,7 +148,7 @@ $dark: #6c7680;
 
                 &:hover,
                 &:focus {
-                    background: $snow;
+                    background: color("snow");
                     cursor: pointer;
                 }
             }
@@ -170,16 +164,16 @@ $dark: #6c7680;
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: $snow;
+    background: color("snow");
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: $border;
+    background: color("gainsboro");
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: $text;
+    background: color("cadet-gray");
 }

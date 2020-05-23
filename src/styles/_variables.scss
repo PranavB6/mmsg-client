@@ -1,0 +1,32 @@
+$primary: #ff9940;
+$orange: #ff9940;
+$red: #f51818;
+$blue: #55b4d4;
+$green: #99bf4d;
+$white: #ffffff;
+$snow: #fafafa;
+$gainsboro: #dcdee1;
+$cadet-gray: #959da6;
+$slate-gray: #6c7680;
+$shadow: rgba(149, 157, 166, 0.8);
+
+$colors: (
+    "primary": $primary,
+    "orange": $orange,
+    "red": $red,
+    "blue": $blue,
+    "green": $green,
+    "white": $white,
+    "snow": $snow,
+    "gainsboro": $gainsboro,
+    "cadet-gray": $cadet-gray,
+    "slate-gray": $slate-gray,
+    "shadow": $shadow
+);
+
+@function color($name) {
+    $color: map-get($colors, $name);
+    @return $color;
+}
+
+$border-radius: 10px;
