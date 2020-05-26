@@ -106,15 +106,17 @@
                     background: #ffffff;
                     border: 1px solid #dcdee1;
                     border-radius: 10px;
-                    
-                    color: color('primary');
+
+                    color: color("primary");
                     font-size: 14px;
 
-                    &:focus, &:hover {
+                    &:focus {
                         outline: none;
+                    }
 
+                    &:hover {
                         background: $primary;
-                        color: color('white');
+                        color: color("white");
                         cursor: pointer;
                     }
                 }

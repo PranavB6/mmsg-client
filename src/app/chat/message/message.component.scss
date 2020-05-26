@@ -110,6 +110,7 @@ $dark: #6c7680;
 .rps-container {
     @include shadow();
 
+    margin: 10px 0px;
     background: color("white");
 
     height: 65px;
@@ -201,6 +202,7 @@ $dark: #6c7680;
 
         border-radius: 50%;
 
+
         // border: 1px solid #FF9940;
 
         background: color("primary");
@@ -213,5 +215,17 @@ $dark: #6c7680;
             font-size: 18px;
             color: color("white");
         }
+    }
+}
+
+
+@media (max-width: 600px) {
+    .vs-container {
+
+        display: none !important;
+    }
+
+    .rps-item {
+        margin-right: 5px !important;
     }
 }
