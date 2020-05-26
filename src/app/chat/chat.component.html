@@ -37,27 +37,36 @@
 
 
         </div>
-        <div class="search-bar">
-            <div class="icon-container">
-                <div class="icon">+</div>
+        <div class="text-bar-container">
+            <div class="rps-container">
+                <button class="rps-btn" (click)="onSendRpsEvent(RpsHand.ROCK)">Rock</button>
+                <button class="rps-btn" (click)="onSendRpsEvent(RpsHand.PAPER)">Paper</button>
+                <button class="rps-btn" (click)="onSendRpsEvent(RpsHand.SCISSORS)">Scissors</button>
             </div>
 
-            <div class="search-input-container" (keyup.enter)="onSendMsg()">
-                <input class="search-input" [(ngModel)]="typedText">
+            <div class="text-bar">
+                <div class="icon-container">
+                    <div class="icon">+</div>
+                </div>
+    
+                <div class="text-input-container" (keyup.enter)="onSendMsg()">
+                    <input class="text-input" [(ngModel)]="typedText">
+                </div>
+    
+    
+    
+                <!-- <form (submit)="onSendMsg()"> -->
+                    <button type="submit" class="send-btn" (click)="onSendMsg()" >
+                        <span class="send-btn-text ">
+                            Send
+                        </span>
+                    </button>
+                <!-- </form> -->
+    
+    
             </div>
-
-
-
-            <!-- <form (submit)="onSendMsg()"> -->
-                <button type="submit" class="send-btn" (click)="onSendMsg()" >
-                    <span class="send-btn-text ">
-                        Send
-                    </span>
-                </button>
-            <!-- </form> -->
-
-
         </div>
+
     </div>
 </div>
 

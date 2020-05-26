@@ -8,7 +8,7 @@ import { MsgType } from 'src/models/msg-type.model';
     styleUrls: ['./message.component.scss'],
 })
 export class MessageComponent implements OnInit {
-    @Input("message") msg = new ChatMessage();
+    @Input("message") msg: any = {};
 
     MsgType = MsgType;
 

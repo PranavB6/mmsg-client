@@ -3,4 +3,5 @@ export enum MsgType {
     SERVER,
     FROM_SELF,
     FROM_OTHERS,
+    RPS_RESULT
 }

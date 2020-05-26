@@ -4,6 +4,7 @@ import {
     AfterViewInit,
     ViewChild,
     ElementRef,
+    OnDestroy,
 } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SocketioService } from '../socketio.service';
@@ -11,32 +12,35 @@ import { Subscription, ReplaySubject, observable, pipe } from 'rxjs';
 import { map, tap, delay } from 'rxjs/operators';
 import { ChatMessage } from 'src/models/chat-message.model';
 import { MsgType } from 'src/models/msg-type.model';
+import { RpsHand } from 'src/models/rps-hand.model';
 
 @Component({
     selector: 'app-chat',
     templateUrl: './chat.component.html',
     styleUrls: ['./chat.component.scss'],
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy {
     @ViewChild('msgsContainer') msgContainer: ElementRef;
+    RpsHand = RpsHand;
 
-    public username: string;
-    public room: string;
-    public message: ChatMessage;
-    // public message_others: ChatMessage;
-    // public message_self: ChatMessage;
-    // public message_server: ChatMessage;
+    dummy;
+    public username: string = '';
+    public room: string = '';
+    public typedText: string = '';
+
     chatMessages: ChatMessage[] = [];
-
-    public typedText = '';
 
     constructor(
         private socketService: SocketioService,
         private route: ActivatedRoute
-    ) {}
+    ) {
+        // let dummy = new ChatMessage();
+        // dummy.type = MsgType.RPS_RESULT;
+        // this.chatMessages.push(dummy);
+    }
 
     ngOnInit(): void {
-        this.setHeight();
+        this.setWindowHeight();
 
         this.joinRoom();
 
@@ -47,25 +51,10 @@ export class ChatComponent implements OnInit {
                 tap(() => this.scrollToBottom())
             )
             .subscribe();
-
-        // this.message_others = new ChatMessage();
-        // this.message_others.from = "Madeeha";
-        // this.message_others.text = "sacsacasc";
-        // this.message_others.type = MsgType.FROM_OTHERS;
-
-        // this.message_self = new ChatMessage();
-        // this.message_self.from = "Pranav";
-        // this.message_self.text = "sacsacasc";
-        // this.message_self.type = MsgType.FROM_SELF;
-
-        // this.message_server = new ChatMessage();
-        // this.message_server.from = "Server";
-        // this.message_server.text = "sacsacasc";
-        // this.message_server.type = MsgType.SERVER;
     }
 
     joinRoom() {
-        this.route.queryParams.subscribe((params) => {
+        this.route.queryParams.subscribe((params: any) => {
             this.username = params.username;
             this.room = params.room;
             this.socketService.joinRoom(this.username, this.room);
@@ -77,7 +66,10 @@ export class ChatComponent implements OnInit {
             this.socketService.sendMsg(this.typedText);
             this.typedText = '';
         }
-        // this.message = '';
+    }
+
+    onSendRpsEvent(value: RpsHand) {
+        this.socketService.sendRpsEvent(value);
     }
 
     scrollToBottom() {
@@ -94,7 +86,7 @@ export class ChatComponent implements OnInit {
         // container.scrollTop = container.scrollHeight;
     }
 
-    setHeight() {
+    setWindowHeight() {
         // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
         let vh = window.innerHeight * 0.01;
         // Then we set the value in the --vh custom property to the root of the document
@@ -106,5 +98,9 @@ export class ChatComponent implements OnInit {
             let vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         });
+    }
+
+    ngOnDestroy() {
+        this.socketService.disconnect();
     }
 }
